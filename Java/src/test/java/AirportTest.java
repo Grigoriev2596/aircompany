@@ -61,8 +61,8 @@ public class AirportTest {
     public void testSortByMaxLoadCapacity() {
         List<Plane> expected = Arrays.asList(
             new ExperimentalPlane("Bell X-14", 277, 482, 500, ExperimentalTypes.HIGH_ALTITUDE, ClassificationLevel.SECRET),
-            new ExperimentalPlane("Ryan X-13 Vertijet", 560, 307, 500, ExperimentalTypes.VERTICAL_TAKE_OFF_LANDING, ClassificationLevel.UNCLASSIFIED),
             new ExperimentalPlane("Ryan X-13 Vertijet", 560, 307, 500, ExperimentalTypes.VERTICAL_TAKE_OFF_LANDING, ClassificationLevel.TOP_SECRET),
+            new ExperimentalPlane("Ryan X-13 Vertijet", 560, 307, 500, ExperimentalTypes.VERTICAL_TAKE_OFF_LANDING, ClassificationLevel.UNCLASSIFIED),
             new MilitaryPlane("F-15", 1500, 12000, 10000, MilitaryType.FIGHTER),
             new MilitaryPlane("F-22", 1550, 13000, 11000, MilitaryType.FIGHTER),
             new PassengerPlane("Embraer 190", 870, 8100, 30800, 64),
@@ -91,8 +91,7 @@ public class AirportTest {
                 new MilitaryPlane("B-2 Spirit", 1030, 22000, 70000, MilitaryType.BOMBER),
                 new MilitaryPlane("B-52 Stratofortress", 1000, 20000, 80000, MilitaryType.BOMBER)
         );
-        Airport airport = new Airport(planes);
-        List<MilitaryPlane> bomberMilitaryPlanes = airport.getMilitaryPlanesByType(MilitaryType.BOMBER);
+        List<MilitaryPlane> bomberMilitaryPlanes = new Airport(planes).getMilitaryPlanesByType(MilitaryType.BOMBER);
         Assert.assertEquals(bomberMilitaryPlanes, expected);
     }
 
@@ -101,8 +100,7 @@ public class AirportTest {
         List<Plane> expected = Arrays.asList(
                 new ExperimentalPlane("Ryan X-13 Vertijet", 560, 307, 500, ExperimentalTypes.VERTICAL_TAKE_OFF_LANDING, ClassificationLevel.UNCLASSIFIED)
         );
-        Airport airport = new Airport(planes);
-        List<ExperimentalPlane> experimentalPlanesWithClassificationLevelHigherThanUnclassified = airport.getExperimentalPlanesWithParticularLevel(ClassificationLevel.UNCLASSIFIED);
+        List<ExperimentalPlane> experimentalPlanesWithClassificationLevelHigherThanUnclassified = new Airport(planes).getExperimentalPlanesWithParticularLevel(ClassificationLevel.UNCLASSIFIED);
         Assert.assertEquals(experimentalPlanesWithClassificationLevelHigherThanUnclassified, expected);
     }
 

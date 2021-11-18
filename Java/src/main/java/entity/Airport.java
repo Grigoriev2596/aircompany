@@ -54,7 +54,7 @@ public class Airport {
 
     public List<ExperimentalPlane> getExperimentalPlanesWithParticularLevel(ClassificationLevel level) {
         return getExperimentalPlanes().stream()
-                .filter(plane -> plane.getType().equals(level))
+                .filter(plane -> plane.getClassificationLevel().equals(level))
                 .collect(Collectors.toList());
     }
 
