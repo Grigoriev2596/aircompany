@@ -1,4 +1,4 @@
-package Planes;
+package entity.planes;
 
 import models.MilitaryType;
 

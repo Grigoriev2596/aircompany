@@ -1,11 +1,11 @@
 package entity;
 
-import Planes.ExperimentalPlane;
+import entity.planes.ExperimentalPlane;
 import models.ClassificationLevel;
 import models.MilitaryType;
-import Planes.MilitaryPlane;
-import Planes.PassengerPlane;
-import Planes.Plane;
+import entity.planes.MilitaryPlane;
+import entity.planes.PassengerPlane;
+import entity.planes.Plane;
 
 import java.util.*;
 
