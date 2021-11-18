@@ -92,7 +92,7 @@ public class AirportTest {
                 new MilitaryPlane("B-52 Stratofortress", 1000, 20000, 80000, MilitaryType.BOMBER)
         );
         Airport airport = new Airport(planes);
-        List<MilitaryPlane> bomberMilitaryPlanes = airport.getBomberMilitaryPlanes();
+        List<MilitaryPlane> bomberMilitaryPlanes = airport.getMilitaryPlanesByType(MilitaryType.BOMBER);
         Assert.assertEquals(bomberMilitaryPlanes, expected);
     }
 
@@ -102,7 +102,7 @@ public class AirportTest {
                 new ExperimentalPlane("Ryan X-13 Vertijet", 560, 307, 500, ExperimentalTypes.VERTICAL_TAKE_OFF_LANDING, ClassificationLevel.UNCLASSIFIED)
         );
         Airport airport = new Airport(planes);
-        List<ExperimentalPlane> experimentalPlanesWithClassificationLevelHigherThanUnclassified = airport.getExperimentalPlanesWithClassificationLevelHigherThanUnclassified();
+        List<ExperimentalPlane> experimentalPlanesWithClassificationLevelHigherThanUnclassified = airport.getExperimentalPlanesWithParticularLevel(ClassificationLevel.UNCLASSIFIED);
         Assert.assertEquals(experimentalPlanesWithClassificationLevelHigherThanUnclassified, expected);
     }
 
